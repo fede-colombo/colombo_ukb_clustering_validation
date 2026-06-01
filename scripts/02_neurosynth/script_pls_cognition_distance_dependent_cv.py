@@ -2,10 +2,10 @@
 """
 Created on Mon Jul 21 10:39:00 2025
 
-@author: Admin
-
 Behavioural PLS analysis with distance-dependent cross-validation
 Analysis of cognition terms vs Cohen's d cortical thickness
+
+@author: Federica Colombo
 """
 
 import numpy as np

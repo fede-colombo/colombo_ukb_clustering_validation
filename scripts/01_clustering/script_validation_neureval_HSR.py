@@ -2,10 +2,10 @@
 """
 Created on Fri Jan  3 15:39:13 2025
 
-@author: fcolo
-"""
+External validation of clustering solution in HSR
 
-### RUN FindBestClustCVMultiview WITH OPTIMIZED MULTIVIEW CLUSTERING/CLASSIFIER PARAMETERS
+@author: Federica Colombo
+"""
 
 # Make the required imports
 import pandas as pd

@@ -2,11 +2,10 @@
 """
 Created on Sat Nov  8 12:11:06 2025
 
-@author: Admin
+Multilinear regression model and dominance analysis
+
+@author: Federica Colombo
 """
-############################################################
-### MULTILINEAR REGRESSION MODEL AND DOMINANCE ANALYSIS ###
-############################################################
 
 import numpy as np
 import abagen

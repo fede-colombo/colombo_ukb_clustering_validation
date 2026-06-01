@@ -4,7 +4,7 @@ Greedy matching of controls to cases within a single database
 Matching variables: BMI, Age, Sex
 Cases are kept fixed, controls are reduced until matched
 
-@author: Admin
+@author: Federica Colombo
 """
 
 import numpy as np

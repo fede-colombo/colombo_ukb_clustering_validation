@@ -4,6 +4,8 @@
 """
 Integrated script: fetches NeuroSynth maps, runs meta-analyses for CogAtlas terms,
 and parcellates with the FreeSurfer DKT atlas using surface-based processing.
+
+@author: Federica Colombo
 """
 
 import contextlib

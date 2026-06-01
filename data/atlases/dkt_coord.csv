@@ -1,0 +1,63 @@
+;name;x.mni;y.mni;z.mni;lobe;hemi;index;name.full
+1;lcACC;-2;21;27;Cingulate;L;1;L caudal anterior cingulate
+2;lcMFG;-45;18;46;Frontal;L;2;L caudal middle frontal gyrus
+3;lCUN;-1;-82;20;Occipital;L;3;L cuneus
+4;lENT;-16;-10;-29;Temporal;L;4;L entorhinal
+5;lFUS;-24;-54;-16;Temporal;L;5;L fusiform
+6;lIPL;-47;-70;31;Parietal;L;6;L inferior parietal lobule
+7;lITG;-56;-32;-24;Temporal;L;7;L inferior temporal gyrus
+8;liCC;-1;-48;25;Cingulate;L;8;L isthmus cingulate cortex
+9;lLOG;-43;-87;1;Occipital;L;9;L lateral occipital gyrus
+10;lLOF;-35.98;30.71;-12.11;Frontal;L;10;L lateral orbitofrontal
+11;lLING;-3;-73;-1;Occipital;L;11;L lingual
+12;lMOF;-4;44;-14;Frontal;L;12;L medial orbitofrontal
+13;lMTG;-68;-29;-13;Temporal;L;13;L middle temporal gyrus
+14;lPARH;-18;-30;-18;Temporal;L;14;L parahippocampal
+15;lparaC;-3;-28;62;Frontal;L;15;L paracentral
+16;lpOPER;-57;22;18;Frontal;L;16;L pars opercularis
+17;lpORB;-44;48;-13;Frontal;L;17;L pars orbitalis
+18;lpTRI;-50;35;3;Frontal;L;18;L pars triangularis
+19;lperiCAL;-12;-89;3;Occipital;L;19;L pericalcarine
+20;lpostC;-50;-26;58;Parietal;L;20;L postcentral
+21;lPCC;-1;-18;38;Cingulate;L;21;L posterior cingulate cortex
+22;lpreC;-44;-12;59;Frontal;L;22;L precentral
+23;lPCUN;-9;-59;46;Parietal;L;23;L precuneus
+24;lrACC;-2;39;6;Cingulate;L;24;L rostral anterior cingulate cortex
+25;lrMFG;-34;53;17;Frontal;L;25;L rostral middle frontal gyrus
+26;lSFG;-21;38;50;Frontal;L;26;L superior frontal gyrus
+27;lSPL;-25;-62;63;Parietal;L;27;L superior parietal lobule
+28;lSTG;-63;-7;-1;Temporal;L;28;L superior temporal gyrus
+29;lSMAR;-60;-41;39;Parietal;L;29;L supramarginal gyrus
+30;lTT;-49;-23;9;Temporal;L;30;L transverse temporal
+31;lINS;-41;13;-6;Insula;L;31;L insula
+32;rcACC;3;21;27;Cingulate;R;32;R caudal anterior cingulate
+33;rcMFG;43;14;43;Frontal;R;33;R caudal middle frontal gyrus
+34;rCUN;3;-81;19;Occipital;R;34;R cuneus
+35;rENT;21;-4;-32;Temporal;R;35;R entorhinal
+36;rFUS;33;-52;-19;Temporal;R;36;R fusiform
+37;rIPL;48;-67;29;Parietal;R;37;R inferior parietal lobule
+38;rITG;61;-31;-27;Temporal;R;38;R inferior temporal gyrus
+39;riCC;1;-48;26;Cingulate;R;39;R isthmus cingulate cortex
+40;rLOG;38;-88;1;Occipital;R;40;R lateral occipital gyrus
+41;rLOF;20;38;-21;Frontal;R;41;R lateral orbitofrontal
+42;rLING;5;-69;-1;Occipital;R;42;R lingual
+43;rMOF;7;45;-13;Frontal;R;43;R medial orbitofrontal
+44;rMTG;69;-24;-14;Temporal;R;44;R middle temporal gyrus
+45;rPARH;20;-29;-17;Temporal;R;45;R parahippocampal
+46;rparaC;4;-25;61;Frontal;R;46;R paracentral
+47;rpOPER;57;15;17;Frontal;R;47;R pars opercularis
+48;rpORB;49;40;-13;Frontal;R;48;R pars orbitalis
+49;rpTRI;55;31;5;Frontal;R;49;R pars triangularis
+50;rperiCAL;14;-85;5;Occipital;R;50;R pericalcarine
+51;rpostC;51;-23;56;Parietal;R;51;R postcentral
+52;rPCC;1;-16;37;Cingulate;R;52;R posterior cingulate cortex
+53;rpreC;47;-9;54;Frontal;R;53;R precentral
+54;rPCUN;7;-57;41;Parietal;R;54;R precuneus
+55;rrACC;4;38;4;Cingulate;R;55;R rostral anterior cingulate cortex
+56;rrMFG;43;45;21;Frontal;R;56;R rostral middle frontal gyrus
+57;rSFG;16;34;53;Frontal;R;57;R superior frontal gyrus
+58;rSPL;17;-65;59;Parietal;R;58;R superior parietal lobule
+59;rSTG;67;-12;-1;Temporal;R;59;R superior temporal gyrus
+60;rSMAR;65;-36;35;Parietal;R;60;R supramarginal gyrus
+61;rTT;45;-25;11;Temporal;R;61;R transverse temporal
+62;rINS;43;12;-6;Insula;R;62;R insula

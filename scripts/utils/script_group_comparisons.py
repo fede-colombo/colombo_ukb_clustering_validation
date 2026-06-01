@@ -10,6 +10,8 @@ Flexible Multi-Group Post-Hoc Analysis Script with FDR Correction
 - Computes effect sizes: Cohen's d, Cramer's V, eta-squared
 - Applies FDR correction for multiple comparisons
 - Generates publication-ready Excel tables
+
+@author: Federica Colombo
 """
 
 import pandas as pd

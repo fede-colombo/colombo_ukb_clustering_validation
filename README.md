@@ -1,6 +1,6 @@
-# Mapping generalizable brain-based depression subtypes across clinical, cognitive, and neurotransmitter dimensions
+# Mapping reproducible brain-based depression stratification across clinical, cognitive, and neurotransmitter dimensions
 
-This repository contains code and data in support of "Mapping generalizable brain-based depression subtypes across clinical, cognitive, and neurotransmitter dimensions". 
+This repository contains code and data in support of "Mapping reproducible brain-based depression stratification across clinical, cognitive, and neurotransmitter dimensions". 
 All code was written in Python and R. Below I describe the contents of this repository.
 
 ## code

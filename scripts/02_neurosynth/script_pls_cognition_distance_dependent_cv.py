@@ -2,10 +2,10 @@
 """
 Created on Mon Jul 21 10:39:00 2025
 
+@author: Federica Colombo
+
 Behavioural PLS analysis with distance-dependent cross-validation
 Analysis of cognition terms vs Cohen's d cortical thickness
-
-@author: Federica Colombo
 """
 
 import numpy as np
@@ -20,7 +20,7 @@ from scipy.spatial.distance import squareform, pdist, cdist
 from nilearn.datasets import fetch_atlas_schaefer_2018
 from enigmatoolbox.permutation_testing import rotate_parcellation
 
-# Imposta lo stile
+# Set the plotting style
 plt.rcParams['font.family'] = 'Arial'
 plt.rcParams['font.size'] = 20
 
@@ -215,13 +215,14 @@ def permutation_test_distance_cv(X, Y, coords, n_perm=1000, n_components=1, seed
 #  PATHS & PARAMETERS
 # ======================================================================= #
 
-path_cognition = 'path/to/neurosynth/data'
-path_cohend = 'path/to/cohend/data'
-out_path = 'path/to/results_pls'
+path_cognition = '/path/to/project/data'                    # folder with parcellated Neurosynth maps
+path_cohend    = '/path/to/project/results/neurosynth'      # folder with the Cohen's d map
+out_path       = '/path/to/project/results/neurosynth'      # output folder
+path_coords    = '/path/to/atlases/dkt_coord.csv'           # DKT region centroid coordinates (MNI)
 
 nnodes = 62
 
-coords = pd.read_csv('path/to/dkt_coord.csv', sep=';')
+coords = pd.read_csv(path_coords, sep=';')
 coords_l     = np.array(coords[coords['hemi'] == 'L'][['x.mni', 'y.mni', 'z.mni']])
 coords_r     = np.array(coords[coords['hemi'] == 'R'][['x.mni', 'y.mni', 'z.mni']])
 coords_array = np.array(coords[['x.mni', 'y.mni', 'z.mni']])
@@ -232,11 +233,11 @@ spins = rotate_parcellation(coords_l, coords_r, nrot=nspins)
 spins = spins.astype(int)
 
 # Load data
-cognition_data  = pd.read_csv(path_cognition + '/dkt_parcellated_neurosynth_123.csv', sep=';')
+cognition_data  = pd.read_csv(path_cognition + '/dkt_parcellated_neurosynth.csv', sep=';')
 cognition_names = np.array(cognition_data.iloc[:, 0])
 cognition_data  = cognition_data.iloc[:, 1:].transpose()
 
-cohend_data  = pd.read_csv(path_cohend + '/CT_Cohend_55_UKB_training.csv', sep=';')
+cohend_data  = pd.read_csv(path_cohend + '/CT_cohend.csv', sep=';')
 cohend_names = np.array(cohend_data.iloc[:, 0])
 cohend_data  = cohend_data.iloc[:, 2]
 
@@ -262,7 +263,7 @@ pls_result = pyls.behavioral_pls(
     n_boot=nspins, n_perm=nspins, permsamples=spins,
     test_split=0, seed=42
 )
-pyls.save_results(out_path + '/pls_cognition_results_CT_55_training.hdf5', pls_result)
+pyls.save_results(out_path + '/pls_cognition_results_CT_UKB_test_global_CT.hdf5', pls_result)
 
 lv = 0
 cv = pls_result["singvals"] ** 2 / np.sum(pls_result["singvals"] ** 2)
@@ -283,7 +284,7 @@ plt.ylabel("Cohen's d cortical thickness")
 corr = pearsonr(pls_result['x_scores'][:, lv], pls_result['y_scores'][:, lv])[0]
 plt.title(f'r = {corr:.3f}, p = {p[lv]:.4f}')
 plt.tight_layout()
-plt.savefig(out_path + '/scatter_scores_cognition_CT_55_training.png', dpi=300)
+plt.savefig(out_path + '/scatter_scores_cognition_CT_UKB_test_global_CT.png', dpi=300)
 
 
 # ======================================================================= #
@@ -348,7 +349,7 @@ else:
         neg_loadings, neg_errors, neg_names,
         pos_loadings, pos_errors, pos_names,
         title="Significant Cognitive Processes",
-        out_path=out_path + '/bar_pls_cognition_diverging_CT_55_training.png'
+        out_path=out_path + '/bar_pls_cognition_diverging_CT_UKB_test_global_CT.png'
     )
 
     # Print summary
@@ -370,22 +371,30 @@ train_corrs, test_corrs, null_test_corrs, p_value = \
     permutation_test_distance_cv(X, Y, coords_array,
                                  n_perm=1000, n_components=1, seed=42)
 
-np.savetxt(out_path + '/pls_train_55_training.csv',    train_corrs,    delimiter=',')
-np.savetxt(out_path + '/pls_test_55_training.csv',     test_corrs,     delimiter=',')
-np.savetxt(out_path + '/pls_testnull_55_training.csv', null_test_corrs, delimiter=',')
+np.savetxt(out_path + '/pls_train_UKB_test_global_CT.csv',    train_corrs,    delimiter=',')
+np.savetxt(out_path + '/pls_test_UKB_test_global_CT.csv',     test_corrs,     delimiter=',')
+np.savetxt(out_path + '/pls_testnull_UKB_test_global_CT.csv', null_test_corrs, delimiter=',')
 
 # Boxplot
+# fig, ax = plt.subplots(figsize=(5, 5))
+# sns.boxplot(data=[train_corrs, test_corrs, np.mean(null_test_corrs, axis=1)], ax=ax)
+# ax.set_xticklabels(['Train', 'Test', 'Null'])
+# ax.set_ylabel('Score correlation')
+# ax.set_title(f'Distance-dependent CV (p = {p_value:.6f})')
+# ax.axhline(y=0, color='gray', linestyle='--', alpha=0.5)
+# plt.tight_layout()
+# plt.savefig(out_path + '/boxplot_pls_cv.png', dpi=300)
 
-fig, ax = plt.subplots(figsize=(6.4, 6.4))  # proporzioni più simili alla figura di riferimento
+fig, ax = plt.subplots(figsize=(6.4, 6.4))  # proportions closer to the reference figure
 sns.boxplot(data=[train_corrs, test_corrs, np.mean(null_test_corrs, axis=1)], ax=ax)
 ax.set_xticklabels(['Train', 'Test', 'Null'], fontsize=14)
 ax.set_ylabel('Score correlation', fontsize=14)
 ax.set_title(f'Distance-dependent CV (p = {p_value:.6f})', fontsize=14)
 ax.axhline(y=0, color='gray', linestyle='--', alpha=0.5)
-ax.set_ylim(-0.5, 0.75)  # stesso range Y della figura di riferimento
+ax.set_ylim(-0.5, 0.75)  # same Y range as the reference figure
 ax.tick_params(axis='y', labelsize=12)
 plt.tight_layout()
-plt.savefig(out_path + '/boxplot_pls_cv_CT_55_training.png', dpi=300, bbox_inches='tight')
+plt.savefig(out_path + '/boxplot_pls_cv_UKB_test_global_CT.png', dpi=300, bbox_inches='tight')
 
 # Distribution diagnostic plot
 fig, axes = plt.subplots(1, 2, figsize=(12, 5))
@@ -409,7 +418,7 @@ axes[1].set_title(f'Test vs Null (p = {p_value:.4f})')
 axes[1].legend()
 
 plt.tight_layout()
-plt.savefig(out_path + '/distributions_CT_55_training.png', dpi=300)
+plt.savefig(out_path + '/distributions_UKB_test_global_CT.png', dpi=300)
 
 # Summary
 print(f"\nCross-validation summary:")
